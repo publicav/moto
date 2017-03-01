@@ -1,0 +1,15 @@
+{
+    "name": "publicav/electro",
+    "authors": [
+        {
+            "name": "publicav",
+            "email": "publicav@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "": "core/"
+        }
+    },
+    "require": {}
+}
