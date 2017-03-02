@@ -16,7 +16,7 @@ $( function () {
         }
     } ).autocomplete( "instance" )._renderItem = function (ul, item) {
         return $( "<li>" )
-            .append( "<div id=c" + "'item.id'" + ">" + item.label + ',  ' + item.decription + "</div>" )
+            .append( "<div id=c" + "'item.id'" + ">" + item.label + ',  ' + item.invnumber + "</div>" )
             .appendTo( ul );
     };
 
