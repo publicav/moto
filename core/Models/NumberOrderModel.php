@@ -25,7 +25,7 @@ class NumberOrderModel extends BaseModel {
 
     public function doNumberOrder() {
         $sq = "SELECT id, n_zakaz as label, 
-                       invnumber as inv, date1 as date,  mesto as pos, description as decription
+                       invnumber as inv, date1 as date,  mesto as pos, description as descr
                FROM m_zakaz 
                WHERE ( (id_remont = 1) or (id_zakaz = 4) ) and n_zakaz LIKE  '%{$this->term}%' 
                ORDER BY id DESC

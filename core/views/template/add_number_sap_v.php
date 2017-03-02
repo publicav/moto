@@ -8,7 +8,11 @@
     <div id="menu">
         <?php include( __DIR__ . "/../base/menu.php" ); ?>
     </div>
-    <?php include( __DIR__ . "/../base/login_form.php" ); // loginform ?>
+    <?php
+    include( __DIR__ . "/../base/login_form.php" ); // loginform
+    include( __DIR__ . "/../base/sap_form.php" ); // loginform
+
+    ?>
 
     <div id="left">
         <?php if ( !is_null( $this->_auth ) ) include( __DIR__ . "/../base/menu_left.php" ); ?>
@@ -20,7 +24,7 @@
                 <div class="label_p">
                     <label for="nzakaz">Номер заказа</label>
                 </div>
-                <input id="nzakaz" type="text">
+                <input id="nzakaz" type="number">
             </div>
         </div>
     </div>

@@ -118,8 +118,9 @@ return [
                 'calculation_counter'  => 'ajaxCalculationCounter',         // Расчёт расхода электроэнергии для заданного счётчика
                 'calculation_group'    => 'ajaxCalculationGroup',           // Расчёт расхода электроэнергии для заданной группы
                 'calculation_chart'    => 'ajaxCalculationChart',           // Расчёт расхода электроэнергии для заданной группы для графиков
-
-                'nzakaz'               => 'ajaxNumberOrder'                  // Автозаполнение номера заказа
+                'nzakaz'               => 'ajaxNumberOrder',                 // Автозаполнение номера заказа
+                'loadform_sap'         => 'ajaxSLoadFormSap',                // Загрузка данных в форму добавление нормера САП
+                'actionform_sap'       => 'ajaxActionFormSap'                // Запись номера САПа в таблицу n_zakaz
 
             ]
         ],

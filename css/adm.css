@@ -46,6 +46,10 @@ a:focus {
     display: none;
 }
 
+.fieldset_default {
+    border: 0 #2b4157;
+}
+
 #wrap {
     font: 13px verdana, sans-serif;
     position: absolute;
@@ -513,10 +517,14 @@ a:focus {
     background-color: #FFEB9C;
 }
 
-.input_form {
+.input_form, .input_form_centr {
     font: 16px verdana, sans-serif;
     padding: 5px 0;
     width: 350px;
+}
+
+.input_form_centr {
+    text-align: center;
 }
 
 .good_cell {

@@ -12,6 +12,7 @@ use Base\Auth;
 use Base\Request;
 use Exception\InputException;
 use Models\ActionFormPrivelegeModel;
+use Models\ActionFormSapModel;
 use Models\ActionFormUserAddModel;
 use Models\ActionFormUserModel;
 use Models\ActionFromValueModel;
@@ -23,6 +24,7 @@ use Models\CounterModel;
 use Models\FilterValueModel;
 use Models\LastValueCounterModel;
 use Models\LoadFormPrivelegeModel;
+use Models\LoadFormSapModel;
 use Models\LoadFormUserModel;
 use Models\LoadFormValueModel;
 use Models\MenuLeftModel;
@@ -479,5 +481,54 @@ class ControllerAjax {
             }
         }
     }
+
+    /**
+     * Загрузка данных в форму Sap
+     * @throws InputException
+     */
+    public function ajaxSLoadFormSap() {
+        $model = new LoadFormSapModel();
+        if ( Request::isGet() ) {
+            if ( $model->load( Request::getGet() ) and ( $model->validate() ) ) {
+                if ( $model->doLoadFormSap() )
+                    $data = $model->getResult();
+                else throw new \Exception( 'Ошибка загрузки формы' );
+            } else {
+                throw new InputException( 'Ошибка данных - ' . $model->getFirstError()['error'][1] );
+            }
+            $this->result = [
+                'success'  => true,
+                'id_error' => 0,
+                'data'     => $data
+            ];
+            echo json_encode( $this->result );
+        }
+
+    }
+
+    /**
+     * Запись данных в форму user редактирование
+     * @throws InputException
+     */
+    public function ajaxActionFormSap() {
+        $model = new ActionFormSapModel();
+
+        if ( Request::isPost() ) {
+            if ( $model->load( Request::getPost() ) and ( $model->validate() ) ) {
+                if ( $model->doActionFormSap() ) {
+
+                    $this->result = [
+                        'success'  => true,
+                        'id_error' => 0,
+                        'message'  => $model->getResult(),
+                    ];
+                    echo json_encode( $this->result );
+                }
+            } else {
+                throw new InputException( 'Ошибка данных - ' . $model->getFirstError()['error'][1] );
+            }
+        }
+    }
+
 
 }
