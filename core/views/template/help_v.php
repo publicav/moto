@@ -32,7 +32,7 @@
 		<p><a href="prog/MozillaFirefox64OfflineInstaller.exe" title="Mozila Firefox">Mozilla Firefox x64</a></p>
 		<p><a href="prog/GoogleChrome64OfflineInstaller.exe" title="Google Chrome">Google Chrome x64</a></p>
 	<div>
-	<div id="product">Учёт электоэнергии  2016-<?=date('Y')?>  ver. 1.05 </div>
+	<div id="product">Движение электродвигатей  2017-<?=date('Y')?>  ver. 1.00 </div>
 </div>
 
 
