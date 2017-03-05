@@ -186,15 +186,6 @@ let print_t_calc = ( data )  => {
 }
 
 
-let print_menu = ( menu ) => {
-	var st = '';
-	for(let i = 0; i < menu.length; i++)
-		st += `	<li class="menu_childs1">
-					<a id="${menu[i].id_a}" href="${menu[i].id_a}">${menu[i].name}</a>
-				</li>`;
-	return st;
-}
-
 let json_get_table = ( objTarget, cmd_arr ) => {
 	$.ajax({dataType: 'json', type: 'get', url: 'ajax/filterValue/',  data: cmd_arr})
 	 .done(( result ) => {
@@ -424,53 +415,6 @@ let user_form_actions = ( obj_form ) => {
 	})
 	.fail((result) => alert( result.responseJSON.error ));
 }
-
-let unregistration = () => {
-	$.ajax({dataType: 'json', type: 'post', url: 'ajax/unregistration/'} )
-	.done((result) => {
-			$.ajax({dataType: 'json', type: 'post', url: 'json/menu.json'} )
-			.done((result_menu) => {
-				var menu =  result_menu.menu;
-				$('#menu').html( `<ul>${print_menu( menu )}</ul>` );
-				$('#left').html( '' );
-				$('#right').html( '' );
-			})
-			.fail(() => alert('Error'));
-			alert(result.message);
-	})
-	.fail(() => alert('Error'));
-}
-
-let registration = ( form ) => {
-	var m_method=$(form).attr('method');
-	var m_action=$(form).attr('action');
-	var m_data=$(form).serialize();
-
-	$.ajax({ dataType: 'json', type: m_method, url: m_action, data: m_data })
-	.done((result) => {
-		$.ajax({ dataType: 'json', type: 'post', url: 'json/menu_registration.json' })
-		 .done((result_menu) => {
-			var menu =  result_menu.menu;
-			var mainfile = `<ul>${print_menu( menu )}`;
-			if (result.id != 0) mainfile += `<div class="user"><div class="title_user">Вы зашли как:</div>${result.name} ${result.family}</div>`;
-			mainfile += '</ul>';
-			$('#menu').html( mainfile );
-		})
-		.fail(( result ) => alert('Error'));
-
-		$.ajax({ dataType: 'json', type: 'post', url: 'ajax/menuleft/' })
-		.done((result_menu) => {
-			var menu =  result_menu;
-			$( '#left' ).html( `<div id="menu_left" class="left-box"><ol>${print_menu( menu )}</ol></div>` );
-		})
-		.fail(( result ) => {
-			console.log(result);
-			//alert(result.responseJSON.error);
-		});
-	})
-	.fail(( result ) => alert(result.responseJSON.error));
-}
-
 
 let edit_privilege = () => {
 	var m_data = { 'id_user': $('#edit_user_id').val() }

@@ -1,0 +1,88 @@
+/* Google Fonts */
+
+/* Main Menu */
+
+ul#left-menu {
+    margin-top: 30px;
+    margin-bottom: 25px;
+    font-family: Tahoma, Verdana, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    list-style: none;
+    /*position: absolute;*/
+    padding-left: 0;
+
+    cursor: pointer;
+    -webkit-box-shadow: 0px 0px 0px;
+    -moz-border-radius-topleft: 20px;
+    -webkit-border-top-left-radius: 20px;
+
+}
+
+ul#left-menu > ul {
+    list-style: none;
+    opacity: 0;
+
+}
+
+ul#left-menu li {
+    background: #E5E3E9;
+    padding: 15px 20px 15px 10px;
+    border-bottom: 1px solid #fff;
+}
+
+ul#left-menu li:hover {
+    background: #9eccb3;
+}
+
+ul#left-menu li:first-child {
+    border-radius: 0 5px 0 0;
+}
+
+ul#left-menu li a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: #2B587A;
+    text-decoration: none;
+}
+
+ul#left-menu i {
+    padding-right: 15px;
+    padding-left: 5px;
+}
+
+/* Submenu */
+
+.submenu {
+    color: #2B587A;
+    position: absolute;
+    width: 240px;
+    left: 242px;
+    margin-top: -50px;
+    -webkit-box-shadow: 3px 3px 5px;
+    border-radius: 5px;
+    list-style: none;
+    padding-left: 0;
+    z-index: 2;
+
+}
+
+ul.submenu > li {
+    padding: 10px;
+}
+
+ul#left-menu ul.submenu, ul.show-submenu {
+    opacity: 1;
+    cursor: pointer;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+
+}
+
+ul#left-menu ul.hide-submenu {
+    cursor: pointer;
+    display: none;
+}
+
