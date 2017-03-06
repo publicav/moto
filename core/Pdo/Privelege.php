@@ -9,7 +9,7 @@ class Privelege {
 
     function __construct( $id ) {
         $this->_pdo = \db::getLink()->getDb();
-        $sq = "SELECT id,id_menu, visibly FROM tables_priv WHERE (id_users = :id )";
+        $sq = "SELECT id,id_menu, visibly FROM tables_priv_new WHERE (id_users = :id )";
         $param = [ 'id' => $id ];
         $res = $this->_pdo->prepare( $sq );
         if ( !$res->execute( $param ) ) {

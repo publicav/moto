@@ -24,7 +24,7 @@ class LoadFormUserModel extends BaseModel {
     public function doLoadFormUser() {
 
         $id = $this->id;
-        $sq = "SELECT id, users, password, name, family FROM users WHERE  ring > 0 AND id = :id;";
+        $sq = "SELECT id, users, password, name, family FROM users_c WHERE  ring > 0 AND id = :id;";
 
         $param = [ 'id' => $id ];
         $res = $this->_pdo->prepare( $sq );
