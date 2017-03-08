@@ -1116,18 +1116,18 @@ a:focus {
     float: left;
 }
 
-#user_div_privelege {
+#user_form_privelege {
     display: block;
 }
 
-#user_div_privelege ol {
+#user_form_privelege ol {
     list-style: none;
     margin: 5px 0 10px;
     width: 300px;
 
 }
 
-#user_div_privelege ol li {
+#user_form_privelege ol li {
     margin: 0 5px;
     padding: 5px 2px 7px 7px;
     display: block;
@@ -1136,7 +1136,7 @@ a:focus {
 
 }
 
-#user_div_privelege ol li .privilege_checkbox {
+#user_form_privelege ol li .privilege_checkbox {
     display: block;
     float: right;
     margin: 3px 5px 0 5px;

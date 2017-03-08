@@ -36,7 +36,7 @@ class ActionFormUserModel extends BaseModel {
     public function doActionFormUser() {
         $config = $this->_config;
         $md5 = sha1( md5( md5( $this->pass_edit ) . $config['MD5'] . $this->user_edit ) );
-        $sq = "UPDATE users  
+        $sq = "UPDATE users_c  
 			SET users = :users, password = :password, name = :name, family = :family, ring = :ring
 			WHERE (id = :id);";
 

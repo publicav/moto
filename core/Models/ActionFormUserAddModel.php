@@ -36,7 +36,7 @@ class ActionFormUserAddModel extends BaseModel {
         $config = $this->_config;
         $md5 = sha1( md5( md5( $this->pass_edit ) . $config['MD5'] . $this->user_edit ) );
 
-        $sq = "INSERT INTO users (users, password, name, family,  ring) 
+        $sq = "INSERT INTO users_c (users, password, name, family,  ring) 
 			VALUES (:users, :password, :name, :family, :ring);";
 
         $msg = 'Пользователь ' . $this->name_add . ' добавлен';
