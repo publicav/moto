@@ -25,15 +25,17 @@ class LoadFormPrivelegeModel extends BaseModel {
     }
 
     public function doLoadFormPrivelege() {
-
         $id_user = $this->id_user;
-
         $privelege = new Privelege( $id_user );
         $getMenuLeft = new GetMenuLeft();
         $leftMenu = new LeftMenu( $privelege, $getMenuLeft );
         $menuLeftPriv = $leftMenu->getDataForm();
 
-        $this->result = $menuLeftPriv;
+        $this->result = [
+            'success'  => true,
+            'id_error' => 0,
+            'data'     => $menuLeftPriv,
+        ];
         return true;
     }
 

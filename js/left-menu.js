@@ -1,4 +1,4 @@
-function menuLeftInit() {
+$( function () {
     $( "#left" ).on( 'mouseover', ".dropdown-item", function () {
         $( this ).next().addClass( "show-submenu" ).removeClass( "hide-submenu" );
     } )
@@ -11,4 +11,4 @@ function menuLeftInit() {
     $( "#left" ).on( 'mouseout', ".submenu", function () {
         $( this ).addClass( "hide-submenu" ).removeClass( "show-submenu" );
     } )
-}
+} )

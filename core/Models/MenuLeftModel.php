@@ -26,7 +26,11 @@ class MenuLeftModel extends BaseModel {
         if ( $id_users > 0 ) {
             $menuLeft = new Privelege( $id_users );
             $menu_left_m = $menuLeft->getMenuLeft();
-            $this->result = $menu_left_m;
+            $this->result = [
+                'success'  => true,
+                'id_error' => 0,
+                'data'     => $menu_left_m
+            ];
             return true;
         }
         $this->result = null;

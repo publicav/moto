@@ -47,7 +47,7 @@ class mainMenu {
     }
 
     public function render() {
-        $mainMenu = $this->_menuArray['menu'];
+        $mainMenu = $this->_menuArray['data'];
         $content = '';
         $countMainMenu = count( $mainMenu );
         for ( $i = 0; $i < $countMainMenu; $i++ ) {

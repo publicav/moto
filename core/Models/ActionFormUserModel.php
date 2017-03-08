@@ -13,7 +13,6 @@ use Base\BaseModel;
 
 class ActionFormUserModel extends BaseModel {
     public $edit_user_id;
-    public $actions;
     public $user_edit;
     public $pass_edit;
     public $pass_repeat_edit;
@@ -25,8 +24,7 @@ class ActionFormUserModel extends BaseModel {
     public function getRules() {
         // TODO: Implement getRules() method.
         return [
-            'actions'          => [ 'required', ],
-            'user_edit'        => [ 'required', 'rangeLogin', 'uniqueLogin', ],
+            'user_edit'        => [ 'required', 'rangeLogin',  ],
             'pass_edit'        => [ 'required', 'confirmPassword', 'minPassword' ],
             'pass_repeat_edit' => [ 'required', ],
             'family_edit'      => [ 'required', ],
