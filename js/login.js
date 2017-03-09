@@ -27,9 +27,11 @@ $( function () {
     const ReqestLeftMenu = Object.assign( {}, ReqestData );
     const MainMenu = {
         dest: {},
+        user: {},
         html: '',
-        init: function ( dest ) {
+        init: function ( dest, user = {} ) {
             this.dest = dest;
+            this.user = user;
         },
         doRun: function ( data ) {
             let st = '';
@@ -44,7 +46,13 @@ $( function () {
             this.html = st;
         },
         render: function () {
+            let userName;
             this.dest.html( this.html );
+            if ( (this.user.id != 0) && (Object.keys( this.user ).length != 0 )) { //noinspection JSUnresolvedVariable
+                userName = `<div class="user"><div class="title_user">Вы зашли как:</div>${this.user.name} ${this.user.family}</div>`;
+            }
+            this.dest.find( 'ul' ).append( userName );
+
         }
     };
     const LeftMenu = {
@@ -134,20 +142,13 @@ $( function () {
             //noinspection JSUnresolvedVariable
             $.ajax( { dataType: 'json', type: m_method, url: m_action, data: m_data } )
                 .done( ( result ) => {
-                    let userName = '';
-                    MainMenu.init( this.mMenuTarget );
+                    MainMenu.init( this.mMenuTarget, result );
                     ReqestData.init( MainMenu, 'json/menu_registration.json' );
                     ReqestData.reqest();
 
                     LeftMenu.init( this.lMenuTarget );
                     ReqestLeftMenu.init( LeftMenu, 'ajax/menuleft/' );
                     ReqestLeftMenu.reqest();
-
-                    if ( result.id != 0 ) { //noinspection JSUnresolvedVariable
-                        userName = `<div class="user"><div class="title_user">Вы зашли как:</div>${result.name} ${result.family}</div>`;
-                    }
-                    this.mMenuTarget.find( 'ul' ).append( userName );
-
                 } )
                 .fail( ( result ) => alert( result.responseJSON.error ) );
         }
